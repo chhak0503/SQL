@@ -84,8 +84,48 @@ INSERT INTO `Sales` (`uid`, `year`, `month`, `sale`) VALUES ('a105', 2020, 2, 18
 INSERT INTO `Sales` (`uid`, `year`, `month`, `sale`) VALUES ('a108', 2020, 2,  76000);
 
 #실습4-3
+SELECT * FROM `Member` WHERE `name`='김유신';
+SELECT * FROM `Member` WHERE `pos`='차장' AND dep=101;
+SELECT * FROM `Member` WHERE `pos`='차장' OR dep=101;
+SELECT * FROM `Member` WHERE `name` != '김춘추';
+SELECT * FROM `Member` WHERE `name` <> '김춘추';
+SELECT * FROM `Member` WHERE `pos`='사원' OR `pos`='대리';
+SELECT * FROM `Member` WHERE `pos` IN('사원', '대리');
+SELECT * FROM `Member` WHERE `dep` IN(101, 102, 103);
+SELECT * FROM `Member` WHERE `name` LIKE '%신';
+SELECT * FROM `Member` WHERE `name` LIKE '김%';
+SELECT * FROM `Member` WHERE `name` LIKE '김_ _';
+SELECT * FROM `Member` WHERE `name` LIKE '_성_';
+SELECT * FROM `Member` WHERE `name` LIKE '정_';
+SELECT * FROM `Sales` WHERE `sale` > 50000;
+SELECT * FROM `Sales` WHERE `sale` >= 50000 AND `sale` < 100000 AND `month`=1;
+SELECT * FROM `Sales` WHERE `sale` BETWEEN 50000 AND 100000;
+SELECT * FROM `Sales` WHERE `sale` NOT BETWEEN 50000 AND 100000;
+SELECT * FROM `Sales` WHERE `year` IN(2020);
+SELECT * FROM `Sales` WHERE `month` IN(1, 2);
+ 
 #실습4-4
+select * from `Sales` order by `sale` asc;
+select * from `Sales` order by `sale` desc;
+
+select * from `Sales` 
+where `sale` > 50000
+order by `year`, `month`, `sale` desc;
+
 #실습4-5
+select * from `Sales` limit 3;
+select * from `Sales` limit 0, 3;
+select * from `Sales` limit 1, 2;
+select * from `Sales` limit 5, 3;
+
+select * from `Sales` 
+where `sale` > 50000
+order by `year` desc, `month`, `sale` desc
+limit 5;
+
+
+
+
 #실습4-6
 #실습4-7
 #실습4-8
